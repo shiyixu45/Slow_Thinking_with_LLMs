@@ -26,7 +26,7 @@ As always, we are committed to keeping our technical approach *open*, and we wel
 
 ## Reference
 
-Please kindly cite our work if it helps you.
+Please kindly cite our reports if they are helpful for your research.
 
 ```
 @article{Slow_Thinking_with_LLMs_1,
