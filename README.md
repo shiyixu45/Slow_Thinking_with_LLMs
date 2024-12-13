@@ -42,7 +42,7 @@ Please kindly cite our reports if they are helpful for your research.
 @article{Slow_Thinking_with_LLMs_2,
   title={Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems},
   author={Min, Yingqian and Chen, Zhipeng and Jiang, Jinhao and Chen, Jie and Deng, Jia and Hu, Yiwen and Tang, Yiru and Wang, Jiapeng and Cheng, Xiaoxue and Song, Huatong and Zhao, Wayne Xin and Liu, Zheng and Wang, Zhongyuan and Wen, Ji-Rong},
-  journal={arXiv preprint arXiv:},
+  journal={arXiv preprint arXiv:2412.09413},
   year={2024}
 }
 ```
