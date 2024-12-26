@@ -1,10 +1,14 @@
 # STILL: Slow Thinking with LLMs
-<div align=center>
 
-<a href="https://arxiv.org/abs/2412.09413" target="_blank">< img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a >
-<a href="https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k">< img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-blue?color=8A2BE2"></a >
-<a>< img src="https://img.shields.io/github/stars/RUCAIBox/Slow_Thinking_with_LLMs"></a >
+<div align=center>
+<h1>STILL: Slow Thinking with LLMs</h1>
+<a href="https://arxiv.org/abs/2412.09413" target="_blank"><img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a>
+<a href="https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k"><img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-blue?color=8A2BE2"></a>
+<a><img src="https://img.shields.io/github/stars/RUCAIBox/Slow_Thinking_with_LLMs"></a>
 </div>
+
+
+
 We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## News
