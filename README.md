@@ -1,8 +1,15 @@
 # STILL: Slow Thinking with LLMs
+<div align=center>
+
+<a href="https://arxiv.org/abs/2412.09413" target="_blank">< img src=https://img.shields.io/badge/arXiv-b5212f.svg?logo=arxiv></a >
+<a href="https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k">< img alt="Static Badge" src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-blue?color=8A2BE2"></a >
+<a>< img src="https://img.shields.io/github/stars/RUCAIBox/Slow_Thinking_with_LLMs"></a >
+</div>
 We are STILL exploring the uncharted territory of o1-like reasoning systems.
+
 ## News
 
-+ [22 Dec 2024] We open-source part of the [**training data**](data/public_long_form_thought_data_5k.jsonl) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
++ [22 Dec 2024] We open-source part of the **training data** in [Github](data/public_long_form_thought_data_5k.jsonl) or [HuggingFace](https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
 + [12 Dec 2024] [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
 + [18 Nov 2024] [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report): We release our first [technical report](https://arxiv.org/abs/2411.11694), where we leverage **reward-guided tree search algorithm** to assist LLM reasoning process and largely enhance the performance of LLM on complex reasoning tasks.
 
