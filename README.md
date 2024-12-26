@@ -1,4 +1,3 @@
-# STILL: Slow Thinking with LLMs
 
 <div align=center>
 <h1>STILL: Slow Thinking with LLMs</h1>
