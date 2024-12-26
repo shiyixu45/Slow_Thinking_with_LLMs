@@ -32,7 +32,7 @@ PROMPT = "Your role as an assistant involves thoroughly exploring questions thro
 # Input text
 question = "Convert the point $(0,3)$ in rectangular coordinates to polar coordinates.  Enter your answer in the form $(r,\\theta),$ where $r > 0$ and $0 \\le \\theta < 2 \\pi.$"
 
-input_text = tokenizer.apply_chat_template(
+input_prompts = tokenizer.apply_chat_template(
                 [
                 {"role": "user", "content": PROMPT + question}],
                 tokenize=False,
@@ -49,7 +49,7 @@ sampling_params_gs = SamplingParams(temperature=0, top_p=1.0, max_tokens=20000, 
 
 
 # Completion
-responses = model.generate(prompts, sampling_params)
+responses = model.generate(input_prompts, sampling_params)
 print(responses[0].outputs[0].text)
 ```
 
