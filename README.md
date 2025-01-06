@@ -83,6 +83,7 @@ print(responses[0].outputs[0].text)
 <div align="center">
 <img src="figures/radar.jpg" alt="Virgo" width="400" />
 </div>
+
 ## Future Work
 
 Despite the promising results, our exploration remains preliminary, and there is still a substantial capacity gap compared to industry-level systems. As future work, we plan to investigate how to scale our training approach and extend its capacity to more complex tasks. 
