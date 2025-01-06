@@ -12,6 +12,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## News
 
++ [3 Jan 2025] [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
 + [22 Dec 2024] We open-source part of the **training data** in [Github](data/public_long_form_thought_data_5k.jsonl) or [HuggingFace](https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
 + [12 Dec 2024] [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
 + [18 Nov 2024] [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report): We release our first [technical report](https://arxiv.org/abs/2411.11694), where we leverage **reward-guided tree search algorithm** to assist LLM reasoning process and largely enhance the performance of LLM on complex reasoning tasks.
@@ -70,6 +71,12 @@ print(responses[0].outputs[0].text)
 
   <img src="figures/report_1.jpg" alt="report_1" style="zoom:50%;" />
 
+### Think More, Hallucinate Less: Mitigating Hallucinations via Dual Process of Fast and Slow Thinking [[Report]](https://arxiv.org/abs/2501.01306)
+
+- Large language models demonstrate exceptional capabilities, yet still face the hallucination issue. We propose **HaluSearch**, a novel framework that incorporates tree search-based algorithms to enable an explicit slow thinking generation process for mitigating hallucinations of LLMs during inference. HaluSearch frames text generation as a step-by-step reasoning process, using a self-evaluation reward model to score each generation step and guide the tree search towards the most reliable generation pathway. To balance efficiency and quality, we introduce a hierarchical thinking system switch mechanism inspired by the dual process theory in cognitive science, which dynamically alternates between fast and slow thinking modes at both the instance and step levels.
+
+  <img src="figures/report_hallu.jpg" alt="report_hallu" style="zoom:35%;" />
+
 ## Future Work
 
 Despite the promising results, our exploration remains preliminary, and there is still a substantial capacity gap compared to industry-level systems. As future work, we plan to investigate how to scale our training approach and extend its capacity to more complex tasks. 
@@ -98,3 +105,11 @@ Please kindly cite our reports if they are helpful for your research.
 }
 ```
 
+```
+@article{cheng2025think,
+  title={Think More, Hallucinate Less: Mitigating Hallucinations via Dual Process of Fast and Slow Thinking},
+  author={Cheng, Xiaoxue and Li, Junyi and Zhao, Wayne Xin and Wen, Ji-Rong},
+  journal={arXiv preprint arXiv:2501.01306},
+  year={2025}
+}
+```
