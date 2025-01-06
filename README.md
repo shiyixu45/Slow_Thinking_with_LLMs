@@ -11,7 +11,7 @@
 We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## News
-
++ [6 Jan 2025] [**Virgo**](#virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json).
 + [3 Jan 2025] [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
 + [22 Dec 2024] We open-source part of the **training data** in [Github](data/public_long_form_thought_data_5k.jsonl) or [HuggingFace](https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
 + [12 Dec 2024] [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
@@ -77,6 +77,12 @@ print(responses[0].outputs[0].text)
 
   <img src="figures/report_hallu.jpg" alt="report_hallu" style="zoom:35%;" />
 
+### Virgo: A Preliminary Exploration on Reproducing o1-like MLLM [[Report]](https://arxiv.org/abs/2501.01904)
+
+- There is a growing interest in reproducing o1-like MLLM in the research community. We explore a straightforward approach by fine-tuning a capable MLLM with a small amount of textual long-form thought data, resulting in a multimodal slow-thinking model, Virgo (**Vi**sual **r**easoning with lon**g** th**o**ught). We find that these long-form reasoning processes, expressed in natural language, can be effectively transferred to MLLMs. Moreover, it seems that such textual reasoning data can be even more effective than visual reasoning data in eliciting the slow-thinking capacities of MLLMs.
+<div align="center">
+<img src="figures/radar.jpg" alt="Virgo" width="400" />
+</div>
 ## Future Work
 
 Despite the promising results, our exploration remains preliminary, and there is still a substantial capacity gap compared to industry-level systems. As future work, we plan to investigate how to scale our training approach and extend its capacity to more complex tasks. 
