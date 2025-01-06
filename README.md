@@ -120,3 +120,12 @@ Please kindly cite our reports if they are helpful for your research.
   year={2025}
 }
 ```
+
+```
+@article{du2025virgo,
+      title={Virgo: A Preliminary Exploration on Reproducing o1-like MLLM}, 
+      author={Yifan Du and Zikang Liu and Yifan Li and Wayne Xin Zhao and Yuqi Huo and Bingning Wang and Weipeng Chen and Zheng Liu and Zhongyuan Wang and Ji-Rong Wen},
+      journal={arXiv preprint arXiv:2501.01904},
+      year={2025}
+}
+```
