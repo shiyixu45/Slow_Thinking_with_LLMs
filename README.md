@@ -6,18 +6,52 @@
 <a><img src="https://img.shields.io/github/stars/RUCAIBox/Slow_Thinking_with_LLMs"></a>
 </div>
 
-
-
 We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
+## Content List
+- [**STILL-3-1.5B-preview**]()
+- [**Virgo**](#virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
+- [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
+- [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
+- [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report)
+
 ## News
++ [26 Jan 2025] [**STILL-3-1.5B-preview**](): We release [**STILL-3-1.5B-preview**](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), a **1.5B slow-thinking reasoning model** achieves **39.33%** accuracy on AIME benchmark! We utilize 30k queries to adapt reinforcement learning on 1.5B model (DeepSeek-R1-Distill-Qwen-1.5B) and **observe the continuous performance improvement** as the number of training steps increased. For better reproducing our work and advancing research progress, **we open-source our [code](OpenRLHF-STILL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), and [data](RUC-AIBOX/STILL-3-Preview-RL-Data).**
 + [6 Jan 2025] [**Virgo**](#virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json).
 + [3 Jan 2025] [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
 + [22 Dec 2024] We open-source part of the **training data** in [Github](data/public_long_form_thought_data_5k.jsonl) or [HuggingFace](https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
 + [12 Dec 2024] [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
 + [18 Nov 2024] [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report): We release our first [technical report](https://arxiv.org/abs/2411.11694), where we leverage **reward-guided tree search algorithm** to assist LLM reasoning process and largely enhance the performance of LLM on complex reasoning tasks.
 
-## Quick Start
+
+
+## Detailed Contents
+
+### 🚀 STILL-3-1.5B-Preview: A 1.5B slow-thinking reasoning model continuously evolving through RL.
+
++ To delve deeper into the potential of reinforcement learning, we applied this training method to the publicly released SFT model by DeepSeek, known as [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), which has enhanced by complex reasoning capacities. 
++ Throughout the RL process, we noticed **a progressive expansion in both the training and test sets**. This led to a substantial enhancement in the model's reasoning skills, culminating in a 39.33% accuracy score on the American Invitational Mathematics Examination (AIME) leaderboard. 
++ We are open-sourcing all of the relevant **[code](OpenRLHF-STILL), [model](RUC-AIBOX/STILL-3-1.5B-preview), and [training data](RUC-AIBOX/STILL-3-Preview-RL-Data)** to foster further research and development in the field of reinforcement learning algorithms.
+
+| | MATH | AIME | OMNI | LiveAOPS | Avg. |
+| --- | --- | --- | --- | --- | --- |
+|Qwen-2.5-Math-7B-Instruct|83.60|16.67|	- | -| - |
+|Qwen-2.5-Math-72B-Instruct|85.90|30.00|	- | -| - |
+|O1-preview	| 85.50 | 44.60 |	- | -| - |
+|STILL-2	| 90.20	| 46.67	| -	| - | -|
+|QwQ-32B	| 90.60	| 50.00	| -	| - | -|
+| DeepSeek-R1-Distill-Qwen-1.5B | 84.04 | 28.67 | 25.60 | 33.33 | 42.91 |
+| STILL-3-1.5B-preview | **85.48** | **39.33** | **33.00** | **39.50** | **49.33** |
+
+
+
+### 🚀 Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems [[Report]](https://arxiv.org/pdf/2412.09413)
+
++ Slow-thinking reasoning systems, such as o1, have demonstrated remarkable capabilities in solving complex reasoning tasks, and are primarily developed and maintained by industry, with their core techniques not publicly disclosed. This paper presents a reproduction report on implementing o1-like reasoning systems. We introduce an **imitate, explore, and self-improve framework** as our primary technical approach to train the reasoning model. In the initial phase, we use distilled long-form thought data to fine-tune the reasoning model, enabling it to invoke a slow-thinking mode. The model is then encouraged to explore challenging problems by generating multiple rollouts, which can result in increasingly more high-quality trajectories that lead to correct answers. Furthermore, the model undergoes self-improvement by iteratively refining its training dataset.
+  <img src="figures/report_2.jpg" alt="report_1" style="zoom:50%;" />
+
+  <img src="figures/part_2_main_res.png" alt="report_1" style="zoom:50%;" />
+#### Quick Start
 
 ```python
 from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -56,28 +90,19 @@ print(responses[0].outputs[0].text)
 
 
 
-## Technical Report
-
-### Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems [[Report]](https://arxiv.org/pdf/2412.09413)
-
-+ Slow-thinking reasoning systems, such as o1, have demonstrated remarkable capabilities in solving complex reasoning tasks, and are primarily developed and maintained by industry, with their core techniques not publicly disclosed. This paper presents a reproduction report on implementing o1-like reasoning systems. We introduce an **imitate, explore, and self-improve framework** as our primary technical approach to train the reasoning model. In the initial phase, we use distilled long-form thought data to fine-tune the reasoning model, enabling it to invoke a slow-thinking mode. The model is then encouraged to explore challenging problems by generating multiple rollouts, which can result in increasingly more high-quality trajectories that lead to correct answers. Furthermore, the model undergoes self-improvement by iteratively refining its training dataset.
-  <img src="figures/report_2.jpg" alt="report_1" style="zoom:50%;" />
-
-  <img src="figures/part_2_main_res.png" alt="report_1" style="zoom:50%;" />
-
-### Enhancing LLM Reasoning with Reward-guided Tree Search [[Report]](https://arxiv.org/abs/2411.11694)
+### 🚀 Enhancing LLM Reasoning with Reward-guided Tree Search [[Report]](https://arxiv.org/abs/2411.11694)
 
 + Recently, test-time scaling has garnered significant attention from the research community, largely due to the substantial advancements of the o1 model released by OpenAI. However,  develop an o1-like reasoning approach is challenging, and  researchers have been making various attempts to advance this open area of research. In this paper, we present a preliminary exploration into enhancing the reasoning abilities of  LLMs through **reward-guided tree search algorithms**. This framework is implemented by integrating the policy model, reward model, and search algorithm. It is primarily constructed around a tree search algorithm, where the policy model navigates a dynamically expanding tree guided by a specially trained reward model. 
 
   <img src="figures/report_1.jpg" alt="report_1" style="zoom:50%;" />
 
-### Think More, Hallucinate Less: Mitigating Hallucinations via Dual Process of Fast and Slow Thinking [[Report]](https://arxiv.org/abs/2501.01306)
+### 🚀 Think More, Hallucinate Less: Mitigating Hallucinations via Dual Process of Fast and Slow Thinking [[Report]](https://arxiv.org/abs/2501.01306)
 
 - Large language models demonstrate exceptional capabilities, yet still face the hallucination issue. We propose **HaluSearch**, a novel framework that incorporates tree search-based algorithms to enable an explicit slow thinking generation process for mitigating hallucinations of LLMs during inference. HaluSearch frames text generation as a step-by-step reasoning process, using a self-evaluation reward model to score each generation step and guide the tree search towards the most reliable generation pathway. To balance efficiency and quality, we introduce a hierarchical thinking system switch mechanism inspired by the dual process theory in cognitive science, which dynamically alternates between fast and slow thinking modes at both the instance and step levels.
 
   <img src="figures/report_hallu.jpg" alt="report_hallu" style="zoom:35%;" />
 
-### Virgo: A Preliminary Exploration on Reproducing o1-like MLLM [[Report]](https://arxiv.org/abs/2501.01904)
+### 🚀 Virgo: A Preliminary Exploration on Reproducing o1-like MLLM [[Report]](https://arxiv.org/abs/2501.01904)
 
 - There is a growing interest in reproducing o1-like MLLM in the research community. We explore a straightforward approach by fine-tuning a capable MLLM with a small amount of textual long-form thought data, resulting in a multimodal slow-thinking model, Virgo (**Vi**sual **r**easoning with lon**g** th**o**ught). We find that these long-form reasoning processes, expressed in natural language, can be effectively transferred to MLLMs. Moreover, it seems that such textual reasoning data can be even more effective than visual reasoning data in eliciting the slow-thinking capacities of MLLMs.
 <div align="center">
@@ -95,6 +120,15 @@ As always, we are committed to keeping our technical approach *open*, and we wil
 Please kindly cite our reports if they are helpful for your research.
 
 ```
+@article{Slow_Thinking_with_LLMs_3_Preview,
+  title={STILL-3-1.5B-preview: Enhancing Slow Thinking Abilities of Small Models through Reinforcement Learning
+},
+  author={RUCAIBox STILL Team},
+  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
+  year={2025}
+}
+
+
 @article{Slow_Thinking_with_LLMs_1,
   title={Enhancing LLM Reasoning with Reward-guided Tree Search},
   author={Jiang, Jinhao and Chen, Zhipeng and Min, Yingqian and Chen, Jie and Cheng, Xiaoxue and Wang, Jiapeng and Tang, Yiru and Sun, Haoxiang and Deng, Jia and Zhao, Wayne Xin and Liu, Zheng and Yan, Dong and Xie, Jian and Wang, Zhongyuan and Wen, Ji-Rong},
