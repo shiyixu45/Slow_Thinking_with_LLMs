@@ -170,3 +170,7 @@ Please kindly cite our reports if they are helpful for your research.
       year={2025}
 }
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=RUCAIBox/Slow_Thinking_with_LLMs.git&type=Date)](https://star-history.com/#RUCAIBox/Slow_Thinking_with_LLMs.git&Date)
