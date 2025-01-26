@@ -121,6 +121,11 @@ Despite the promising results, our exploration remains preliminary, and there is
 
 As always, we are committed to keeping our technical approach *open*, and we will release the data, model, and other resources. We welcome collaboration and support in computational resources.
 
+## Acknowledgements
+We would like to express our sincere gratitude to [DataCanvas Alaya NeW](https://www.alayanew.com/) and [BAAI](https://www.baai.ac.cn/) for their generous computational resources and support.
+
+Additionally, we are deeply thankful for the [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF) open-source training framework, which has provided an invaluable foundation for our work.
+
 ## Reference
 
 Please kindly cite our reports if they are helpful for your research.
@@ -171,6 +176,8 @@ Please kindly cite our reports if they are helpful for your research.
 }
 ```
 
+
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=RUCAIBox/Slow_Thinking_with_LLMs.git&type=Date)](https://star-history.com/#RUCAIBox/Slow_Thinking_with_LLMs.git&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=RUCAIBox/Slow_Thinking_with_LLMs&type=Date)](https://star-history.com/#RUCAIBox/Slow_Thinking_with_LLMs&Date)
+
