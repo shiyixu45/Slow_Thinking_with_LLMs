@@ -33,6 +33,8 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 + Throughout the RL process, we noticed **a progressive expansion in both the training and test sets**. This led to a substantial enhancement in the model's reasoning skills, culminating in a 39.33% accuracy score on the American Invitational Mathematics Examination (AIME) leaderboard. 
 + We are open-sourcing all of the relevant **[code](OpenRLHF-STILL) (based on [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF)), [model](RUC-AIBOX/STILL-3-1.5B-preview), and [training data](RUC-AIBOX/STILL-3-Preview-RL-Data)** (30k from MATH,NuminaMathCoT, and AIME 1983-2023)  to foster further research and development in the field of reinforcement learning algorithms.
 
+We evaluated the model on four benchmarks: MATH, AIME, OMNI, and LiveAOPS. For MATH and AIME, we employed a sampling decoding setup with a sampling temperature of 0.6 and a top-p sampling probability of 0.95. Each question was sampled 64 times, and the average score was calculated. For OMNI and LiveAOPS (August-November 2024), we randomly sampled a subset of answers as integers to facilitate automated evaluation, and used greedy search decoding for the evaluation. The trained model, STILL-3-1.5B-preview, achieved significant improvement. The accuracy on the AIME task increased from 28.67% to 39.33%, resulting in a relative improvement of 37.18%.
+
 
 | | MATH | AIME | OMNI | LiveAOPS | Avg. |
 | --- | --- | --- | --- | --- | --- |
