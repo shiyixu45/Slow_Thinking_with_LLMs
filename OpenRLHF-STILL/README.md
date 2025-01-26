@@ -14,9 +14,11 @@ pip install openrlhf
 ```bash
 cd OpenRLHF-STILL
 
+## Multi Node
 bash dpsk1_5b-4nodes-grpo.sh
-# or you can run training just using 1 node.
-# bash dpsk1_5b-1node-grpo.sh
+
+## Single Node
+bash dpsk1_5b-1node-grpo.sh
 
 ```
 

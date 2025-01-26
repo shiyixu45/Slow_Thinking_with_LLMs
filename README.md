@@ -9,19 +9,19 @@
 We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Content List
-- [**STILL-3-1.5B-preview**]()
-- [**Virgo**](#virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
-- [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
-- [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
-- [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report)
+- [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
+- [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
+- [**STILL-Hallucination Mitigation**](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
+- [**STILL-2**](#-imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
+- [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
-+ [26 Jan 2025] [**STILL-3-1.5B-preview**](): We release [**STILL-3-1.5B-preview**](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), a **1.5B slow-thinking reasoning model** achieves **39.33%** accuracy on AIME benchmark! We utilize 30k queries to adapt reinforcement learning on 1.5B model (DeepSeek-R1-Distill-Qwen-1.5B) and **observe the continuous performance improvement** as the number of training steps increased. For better reproducing our work and advancing research progress, **we open-source our [code](OpenRLHF-STILL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), and [data](RUC-AIBOX/STILL-3-Preview-RL-Data).**
-+ [6 Jan 2025] [**Virgo**](#virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json).
-+ [3 Jan 2025] [**STILL-Hallucination Mitigation**](#think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
++ [26 Jan 2025] [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl): We release [**STILL-3-1.5B-preview**](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), a **1.5B slow-thinking reasoning model** achieves **39.33%** accuracy on AIME benchmark! We utilize 30k queries to adapt reinforcement learning on 1.5B model (DeepSeek-R1-Distill-Qwen-1.5B) and **observe the continuous performance improvement** as the number of training steps increased. For better reproducing our work and advancing research progress, **we open-source our [code](OpenRLHF-STILL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-Preview-RL-Data).**
++ [6 Jan 2025] [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json)._
++ [3 Jan 2025] [**STILL-Hallucination Mitigation**](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
 + [22 Dec 2024] We open-source part of the **training data** in [Github](data/public_long_form_thought_data_5k.jsonl) or [HuggingFace](https://huggingface.co/datasets/RUC-AIBOX/long_form_thought_data_5k) and the [**model**](https://huggingface.co/RUC-AIBOX/STILL-2) for community researchers to use for research purposes.
-+ [12 Dec 2024] [**STILL-2**](#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
-+ [18 Nov 2024] [**STILL-1**](#enhancing-llm-reasoning-with-reward-guided-tree-search-report): We release our first [technical report](https://arxiv.org/abs/2411.11694), where we leverage **reward-guided tree search algorithm** to assist LLM reasoning process and largely enhance the performance of LLM on complex reasoning tasks.
++ [12 Dec 2024] [**STILL-2**](#-imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report): We preliminarily reproduce **a slow-thinking reasoning system**, achieving competitive performance compared to industry-level reasoning systems on these benchmarks! And we also release the [technical report](https://arxiv.org/pdf/2412.09413), which presents the details about our reproduction.
++ [18 Nov 2024] [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report): We release our first [technical report](https://arxiv.org/abs/2411.11694), where we leverage **reward-guided tree search algorithm** to assist LLM reasoning process and largely enhance the performance of LLM on complex reasoning tasks.
 
 
 
@@ -33,6 +33,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 + Throughout the RL process, we noticed **a progressive expansion in both the training and test sets**. This led to a substantial enhancement in the model's reasoning skills, culminating in a 39.33% accuracy score on the American Invitational Mathematics Examination (AIME) leaderboard. 
 + We are open-sourcing all of the relevant **[code](OpenRLHF-STILL), [model](RUC-AIBOX/STILL-3-1.5B-preview), and [training data](RUC-AIBOX/STILL-3-Preview-RL-Data)** to foster further research and development in the field of reinforcement learning algorithms.
 
+
 | | MATH | AIME | OMNI | LiveAOPS | Avg. |
 | --- | --- | --- | --- | --- | --- |
 |Qwen-2.5-Math-7B-Instruct|83.60|16.67|	- | -| - |
@@ -42,6 +43,11 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 |QwQ-32B	| 90.60	| 50.00	| -	| - | -|
 | DeepSeek-R1-Distill-Qwen-1.5B | 84.04 | 28.67 | 25.60 | 33.33 | 42.91 |
 | STILL-3-1.5B-preview | **85.48** | **39.33** | **33.00** | **39.50** | **49.33** |
+
+<div style="display: flex; justify-content: space-around;">
+    <img src="figures/still-3-preview-train.png" alt="Image 1" style="width: 48%;"/>
+    <img src="figures/still-3-preview-test.png" style="width: 48%;"/>
+</div>
 
 
 
