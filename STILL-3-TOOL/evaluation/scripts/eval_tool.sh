@@ -134,4 +134,58 @@ for ((i=0;i<$num_model;i++)) do
         --paralle_size 8 \
         --decode sample \
         --n 8 \
-        --prompt_template ${prompt_template_path}
+        --prompt_template ${prompt_template_path} \
+        --prompt r1_code &
+
+    wait
+
+    # deepseek-ai/DeepSeek-R1-Distill-Qwen-32B: AIME24, sample
+    export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+    python ${SCRIPT} \
+        --data_name AIME24 \
+        --target_path ${SRC_PATH} \
+        --model_name_or_path ${MODEL_PATH} \
+        --max_tokens 32768 \
+        --paralle_size 8 \
+        --decode sample \
+        --n 8 \
+        --prompt_template deepseek &
+
+    wait
+
+    # if you wanna enable mp, set use_slice to True
+    # here is an example of splitting the dataset into 2 slices, with 4 gpus each
+    {
+        # slice 0
+        export CUDA_VISIBLE_DEVICES=0,1,2,3
+        python ${SCRIPT} \
+            --data_name AIME24 \
+            --target_path ${SRC_PATH} \
+            --model_name_or_path ${MODEL_PATH} \
+            --max_tokens 32768 \
+            --paralle_size 4 \
+            --decode sample \
+            --n 8 \
+            --prompt_template deepseek \
+            --use_slice \
+            --slice_id 0 &
+
+        # slice 1
+        export CUDA_VISIBLE_DEVICES=4,5,6,7
+        python ${SCRIPT} \
+            --data_name AIME24 \
+            --target_path ${SRC_PATH} \
+            --model_name_or_path ${MODEL_PATH} \
+            --max_tokens 32768 \
+            --paralle_size 4 \
+            --decode sample \
+            --n 8 \
+            --prompt_template deepseek \
+            --use_slice \
+            --slice_id 1 &
+    }
+    # remember to merge the results of all slices after they finish :)
+
+    wait
+}
+done
