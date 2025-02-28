@@ -2,9 +2,9 @@
 
 ## Introduction
 
-<div align="center">
-    <img src="../figures/STILL-3-TOOL-32B.png" alt="STILL-3-TOOL-32B" style="zoom:50%;" />
-</div>
+<p align="center">
+  <img src="../figures/STILL-3-TOOL-32B.png" width="666"/>
+</p>
 
 We propose `STILL-3-Tool-32B`, leveraging python code to help the reasoning process. During evaluation, `STILL-3-Tool-32B` achieves 81.70% accuracy on AIME 2024, matching the performance of `o3-mini`, outperforming `o1` and `DeepSeek-R1`.
 

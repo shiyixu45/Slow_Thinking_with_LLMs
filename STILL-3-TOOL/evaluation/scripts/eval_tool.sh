@@ -184,7 +184,7 @@ for ((i=0;i<$num_model;i++)) do
             --use_slice \
             --slice_id 1 &
     }
-    # remember to merge the results of the slices after they finish :)
+    # remember to merge the results of all slices after they finish :)
 
     wait
 }

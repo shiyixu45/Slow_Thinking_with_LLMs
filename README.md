@@ -37,9 +37,9 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 We have detailed the training process, data construction, and case studies of STILL-3-Tool-32B in our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
 
-<div align="center">
-    <img src="figures/STILL-3-TOOL-32B.png" alt="STILL-3-TOOL-32B" style="zoom:50%;" />
-</div>
+<p align="center">
+  <img src="figures/STILL-3-TOOL-32B.png" width="666"/>
+</p>
 
 ### 🚀 STILL-3-1.5B-Preview: A 1.5B slow-thinking reasoning model continuously evolving through RL.
 
