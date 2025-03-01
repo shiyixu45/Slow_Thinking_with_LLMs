@@ -1,4 +1,4 @@
-# STILL-3-TOOL-32B
+# Empowering Reasoning Models with Wings: Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs
 
 ## Introduction
 
@@ -23,6 +23,16 @@ pip install deepspeed
 pip install accelerate
 pip install datasets
 ```
+
+### Synthesizing Data of “Coding while Thinking”
+> ✏️ Note: you should prepare the model path, data (queries with original responses) path, and output dir in the script before running. 
+
+```bash
+cd STILL-3-TOOL
+
+bash scripts/run_synthesis.sh 0 1000
+```
+
 
 ### Training
 > Note: we provide detailed instructions in scripts:)

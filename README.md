@@ -33,9 +33,12 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Detailed Contents
 
-### ✨ STILL-3-Tool-32B: A 32B slow-thinking reasoning model leveraging python code to help the reasoning process.
+### ✨ STILL-3-Tool-32B: Empowering Reasoning Models with Wings: Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs
 
-We have detailed the training process, data construction, and case studies of STILL-3-Tool-32B in our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
+- 🧑‍💻 We attempt to activate the **tool manipulation** capability of the long CoT thinking model, enabling it to **spontaneously generate code and call upon tools** to assist in the problem-solving process. 
+- 📈 To our surprise, we find that **_our approach outperform the comparative baseline models (such as DeepSeek-R1, o1, o3-mini-medium) on AIME 24_**, and **_its average performance across three math competitions was on par with DeepSeek-R1_**!
+- 📝 We have detailed the training process, data construction, and case studies of STILL-3-Tool-32B in our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
+- 🔥 Here are our [model](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), [code](https://github.com/RUCAIBox/Slow_Thinking_with_LLMs/tree/main/STILL-3-TOOL) and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-TOOL-32B-Data).
 
 <p align="center">
   <img src="figures/STILL-3-TOOL-32B.png" width="666"/>
