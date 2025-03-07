@@ -14,8 +14,8 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Content List
 - [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
-- [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
-- [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
+  - [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
+  - [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
 - [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
 - [**STILL-Hallucination Mitigation**](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
 - [**STILL-2**](#-imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
@@ -180,16 +180,6 @@ Additionally, we are deeply thankful for the [OpenRLHF](https://github.com/OpenR
 Please kindly cite our reports if they are helpful for your research.
 
 ```
-@article{Slow_Thinking_with_LLMs_3_Preview,
-  title={STILL-3-1.5B-preview: Enhancing Slow Thinking Abilities of Small Models through Reinforcement Learning
-},
-  author={RUCAIBox STILL Team},
-  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
-  year={2025}
-}
-```
-
-```
 @article{Slow_Thinking_with_LLMs_1,
   title={Enhancing LLM Reasoning with Reward-guided Tree Search},
   author={Jiang, Jinhao and Chen, Zhipeng and Min, Yingqian and Chen, Jie and Cheng, Xiaoxue and Wang, Jiapeng and Tang, Yiru and Sun, Haoxiang and Deng, Jia and Zhao, Wayne Xin and Liu, Zheng and Yan, Dong and Xie, Jian and Wang, Zhongyuan and Wen, Ji-Rong},
@@ -204,6 +194,34 @@ Please kindly cite our reports if they are helpful for your research.
   author={Min, Yingqian and Chen, Zhipeng and Jiang, Jinhao and Chen, Jie and Deng, Jia and Hu, Yiwen and Tang, Yiru and Wang, Jiapeng and Cheng, Xiaoxue and Song, Huatong and Zhao, Wayne Xin and Liu, Zheng and Wang, Zhongyuan and Wen, Ji-Rong},
   journal={arXiv preprint arXiv:2412.09413},
   year={2024}
+}
+```
+
+```
+@article{Slow_Thinking_with_LLMs_3,
+      title={An Empirical Study on Eliciting and Improving R1-like Reasoning Models}, 
+      author={Chen, Zhipeng and Min, Yingqian and Zhang, Beichen  and Chen, Jie and Jiang, Jinhao and Cheng, Daixuan and Zhao, Wayne Xin and Liu, Zheng and Miao, Xu and Lu, Yang and Fang, Lei and Wang, Zhongyuan and Wen, Ji-Rong},
+      journal={arXiv preprint arXiv:2503.04548},
+      year={2025}
+}
+```
+
+```
+@article{Slow_Thinking_with_LLMs_3_Tool,
+  title={Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs},
+  author={RUCAIBox STILL Team},
+  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
+  year={2025}
+}
+```
+
+```
+@article{Slow_Thinking_with_LLMs_3_Preview,
+  title={STILL-3-1.5B-preview: Enhancing Slow Thinking Abilities of Small Models through Reinforcement Learning
+},
+  author={RUCAIBox STILL Team},
+  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
+  year={2025}
 }
 ```
 
