@@ -37,7 +37,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Detailed Contents
 
-### STILL-3: An Empirical Study on Eliciting and Improving R1-like Reasoning Models
+### STILL-3: An Empirical Study on Eliciting and Improving R1-like Reasoning Models [[Report]](https://arxiv.org/pdf/2503.04548)
 
 
 - The performance of large reasoning models is heavily influenced by the settings of RL. 
