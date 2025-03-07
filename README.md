@@ -13,6 +13,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
+- [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
 - [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
 - [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
 - [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
@@ -21,7 +22,10 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 - [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
-+ [1 Mar 2025] 🌟🌟 [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process): We propose [**STILL-3-Tool-32B**](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), leveraging python code to help the reasoning process. During evaluation, **STILL-3-Tool-32B** achieves **81.70%** accuracy on AIME 2024, matching the performance of **o3-mini**, outperforming **o1** and **DeepSeek-R1**. **We open-source our [code](STILL-3-TOOL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-TOOL-32B-Data).** For more details, please refer to our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
++ [7 Mar 2025] ⚡️⚡️ [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models): We propose [STILL-3](https://arxiv.org/abs/2503.04548), An Empirical Study on Eliciting and Improving R1-like Reasoning Models.
+  + We systematically **experiment with and document the effects of various factors influencing RL training**, conducting experiments on both base models (zero) and fine-tuned models. 
+  + Beyond RL training, we also explore **the use of tool manipulation**, finding that it significantly boosts the reasoning performance of large reasoning models. 
++ [1 Mar 2025] [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process): We propose [**STILL-3-Tool-32B**](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), leveraging python code to help the reasoning process. During evaluation, **STILL-3-Tool-32B** achieves **81.70%** accuracy on AIME 2024, matching the performance of **o3-mini**, outperforming **o1** and **DeepSeek-R1**. **We open-source our [code](STILL-3-TOOL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-TOOL-32B-Data).** For more details, please refer to our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
 + [26 Jan 2025] [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl): We release [**STILL-3-1.5B-preview**](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), a **1.5B slow-thinking reasoning model** achieves **39.33%** accuracy on AIME benchmark! We utilize 30k queries to adapt reinforcement learning on 1.5B model (DeepSeek-R1-Distill-Qwen-1.5B) and **observe the continuous performance improvement** as the number of training steps increased. For better reproducing our work and advancing research progress, **we open-source our [code](OpenRLHF-STILL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-Preview-RL-Data).**
 + [6 Jan 2025] [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json).
 + [3 Jan 2025] [**STILL-Hallucination Mitigation**](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report): We propose **HaluSearch**, a framework that integrates tree search algorithms and a dynamic system switch mechanism, inspired by dual process theory, to reduce LLM hallucinations during inference.
@@ -32,6 +36,32 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 
 ## Detailed Contents
+
+### STILL-3: An Empirical Study on Eliciting and Improving R1-like Reasoning Models
+
+
+- The performance of large reasoning models is heavily influenced by the settings of RL. 
+  - We thoroughly investigate and document these effects by testing a range of parameter configurations. Following this, **we provide a recommendation for RL training**.
+- After pre-training, the base models already exhibit the potential to perform individual complex reasoning actions. The RL process effectively activates this capability, enabling the model to integrate these actions into a coherent and deliberate thinking process.
+  - Our RL training approach consistently improves the QWEN2.5-32B base model, enhancing both response length and test accuracy.
+- Response length serves as an important indicator of the success of RL training; however, it is a consequence, not a cause, of performance improvement. Designing specialized reward functions to explicitly encourage the model to produce longer responses may lead to issues such as reward hacking, which can’t inherently enhance the model’s reasoning capabilities.
+- RL training consistently improves the performance of fine-tuned models, encompassing both short and long CoT reasoning models. 
+  - Even after Qwen2.5-1.5B attains a high level of performance through training with distilled data, RL training further elevates its capabilities, **achieving a remarkable accuracy of 39.33 on AIME 2024**.
+- Through supervised fine-tuning, LRMs can acquire the capability to manipulate external tools, leading to a significant enhancement in the model’s performance.
+  - By effectively utilizing tool manipulation, **STILL-3-TOOL-32B achieves an impressive accuracy of 86.67 (greedy search) on AIME 2024**. 
+  - Remarkably, this ability can be **activated with only a small number of high-quality training instances**. 
+- We will soon open-source our model, code, and data.
+
+<p align="center">
+  <img src="figures/still-3-fig1.png" width="666"/>
+</p>
+<p align="center">
+  <img src="figures/still-3-fig2.png" width="666"/>
+</p>
+
+<p align="center">
+  <img src="figures/still-3-fig3.png" width="666"/>
+</p>
 
 ### ✨ STILL-3-Tool-32B: Empowering Reasoning Models with Wings: Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs
 
