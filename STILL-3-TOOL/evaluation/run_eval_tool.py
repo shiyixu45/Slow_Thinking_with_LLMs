@@ -15,6 +15,8 @@ from executor import *
 
 
 def check(evaluator, pred_ans, real_ans):
+    if len(pred_ans) == 0:
+        return []
     correctness = evaluator.score(pred_ans, real_ans)
     return correctness
 
