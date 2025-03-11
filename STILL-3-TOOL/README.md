@@ -13,6 +13,8 @@ We propose `STILL-3-Tool-32B`, leveraging python code to help the reasoning proc
 ### Environment Setup
 > Note: the version of `vllm` is important:)
 
+> **Possible bugs in version 0.6.3 of vllm**
+
 ```bash
 conda create --name STILL-3-TOOL python=3.10.16
 pip install vllm==0.6.5
