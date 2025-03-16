@@ -13,6 +13,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
+- [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
 - [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
   - [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
   - [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
@@ -22,9 +23,14 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 - [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
++ [9 Mar 2025] ⚡️⚡️ [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report): We propose [R1-Searcher](https://arxiv.org/abs/2503.05592), a novel two-stage outcome-based RL approach designed to enhance the search capabilities of LLMs.
+  + This method allows LLMs to **autonomously invoke external search systems** to access additional knowledge during the reasoning process.
+  + Our framework **relies exclusively on RL**, without requiring process rewards or distillation for a cold start.
+  + We conduct training on **both base models (zero-shot) and fine-tuned models**, analyzing key research questions arising during the training process.
+  + **We open-source our models: [Qwen-2.5-7B-Base-RL](https://huggingface.co/XXsongLALA/Qwen-2.5-7B-base-RAG-RL) and [Llama-3.1-8B-Instruct-RL](https://huggingface.co/XXsongLALA/Llama-3.1-8B-instruct-RAG-RL), [code](https://github.com/RUCAIBox/Slow_Thinking_with_LLMs/tree/main/R1-Searcher) and [data](https://huggingface.co/datasets/XXsongLALA/RAG-RL-Hotpotqa-with-2wiki/tree/main).
 + [7 Mar 2025] ⚡️⚡️ [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models): We propose [STILL-3](https://arxiv.org/abs/2503.04548), An Empirical Study on Eliciting and Improving R1-like Reasoning Models.
-  + We systematically **experiment with and document the effects of various factors influencing RL training**, conducting experiments on both base models (zero) and fine-tuned models. 
-  + Beyond RL training, we also explore **the use of tool manipulation**, finding that it significantly boosts the reasoning performance of large reasoning models. 
+  + We systematically **experiment with and document the effects of various factors influencing RL training**, conducting experiments on both base models (zero) and fine-tuned models.
+  + Beyond RL training, we also explore **the use of tool manipulation**, finding that it significantly boosts the reasoning performance of large reasoning models.
 + [1 Mar 2025] [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process): We propose [**STILL-3-Tool-32B**](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), leveraging python code to help the reasoning process. During evaluation, **STILL-3-Tool-32B** achieves **81.70%** accuracy on AIME 2024, matching the performance of **o3-mini**, outperforming **o1** and **DeepSeek-R1**. **We open-source our [code](STILL-3-TOOL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-TOOL-32B-Data).** For more details, please refer to our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
 + [26 Jan 2025] [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl): We release [**STILL-3-1.5B-preview**](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), a **1.5B slow-thinking reasoning model** achieves **39.33%** accuracy on AIME benchmark! We utilize 30k queries to adapt reinforcement learning on 1.5B model (DeepSeek-R1-Distill-Qwen-1.5B) and **observe the continuous performance improvement** as the number of training steps increased. For better reproducing our work and advancing research progress, **we open-source our [code](OpenRLHF-STILL), [model](https://huggingface.co/RUC-AIBOX/STILL-3-1.5B-preview), and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-Preview-RL-Data).**
 + [6 Jan 2025] [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report): We develop **Virgo**, a multi-modal slow-thinking reasoning model, based on Qwen2-VL-72B-Instruct, which achieves leading performance on four challenging multi-modal benchmarks. We demonstrate that the slow-thinking reasoning ability can be transferred from text to vision. We open-source the [model](https://huggingface.co/RUC-AIBOX/Virgo-72B) and training [data](https://github.com/RUCAIBox/Virgo/blob/main/data/numina_llava_special_prompt_5k.json).
@@ -37,19 +43,31 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Detailed Contents
 
+### R1-Searcher: Incentivizing the Search Capability in LLMs via Reinforcement Learning [[Report]](https://arxiv.org/pdf/2503.05592)
+
+- The core motivation lies in incentivizing the search capabilities of large language models (LLMs) by enabling exploration within an external retrieval environment. A two-stage outcome-based reinforcement learning (RL) framework is designed to guide the model in freely exploring how to invoke an external retrieval system for acquiring relevant information.
+- The proposed methodology relies solely on outcome-based reinforcement learning, eliminating the need for distillation techniques or cold-start strategies based on supervised fine-tuning (SFT). Moreover, it is effective for both base models (zero-shot) and fine-tuned models.
+- A modified RL training method is introduced, building on Reinforce++ with RAG-based rollout and retrieval mask-based loss calculation. The RAG-based rollout strategy enhances the model's ability to utilize retrieved information effectively during the reasoning process. Additionally, retrieval mask-based loss calculation ensures precise capture of the relevance of retrieved information during training while minimizing interference from irrelevant data.
+- 🔥 Here are our model: [Qwen-2.5-7B-Base-RL](https://huggingface.co/XXsongLALA/Qwen-2.5-7B-base-RAG-RL) and [Llama-3.1-8B-Instruct-RL](https://huggingface.co/XXsongLALA/Llama-3.1-8B-instruct-RAG-RL), [code](https://github.com/RUCAIBox/Slow_Thinking_with_LLMs/tree/main/R1-Searcher) and [data](https://huggingface.co/datasets/XXsongLALA/RAG-RL-Hotpotqa-with-2wiki/tree/main).
+
+
+<p align="center">
+  <img src="figures/r1-searcher.jpg" width="666"/>
+</p>
+
 ### STILL-3: An Empirical Study on Eliciting and Improving R1-like Reasoning Models [[Report]](https://arxiv.org/pdf/2503.04548)
 
 
-- The performance of large reasoning models is heavily influenced by the settings of RL. 
+- The performance of large reasoning models is heavily influenced by the settings of RL.
   - We thoroughly investigate and document these effects by testing a range of parameter configurations. Following this, **we provide a recommendation for RL training**.
 - After pre-training, the base models already exhibit the potential to perform individual complex reasoning actions. The RL process effectively activates this capability, enabling the model to integrate these actions into a coherent and deliberate thinking process.
   - Our RL training approach consistently improves the QWEN2.5-32B base model, enhancing both response length and test accuracy.
 - Response length serves as an important indicator of the success of RL training; however, it is a consequence, not a cause, of performance improvement. Designing specialized reward functions to explicitly encourage the model to produce longer responses may lead to issues such as reward hacking, which can’t inherently enhance the model’s reasoning capabilities.
-- RL training consistently improves the performance of fine-tuned models, encompassing both short and long CoT reasoning models. 
+- RL training consistently improves the performance of fine-tuned models, encompassing both short and long CoT reasoning models.
   - Even after Qwen2.5-1.5B attains a high level of performance through training with distilled data, RL training further elevates its capabilities, **achieving a remarkable accuracy of 39.33 on AIME 2024**.
 - Through supervised fine-tuning, LRMs can acquire the capability to manipulate external tools, leading to a significant enhancement in the model’s performance.
-  - By effectively utilizing tool manipulation, **STILL-3-TOOL-32B achieves an impressive accuracy of 86.67 (greedy search) on AIME 2024**. 
-  - Remarkably, this ability can be **activated with only a small number of high-quality training instances**. 
+  - By effectively utilizing tool manipulation, **STILL-3-TOOL-32B achieves an impressive accuracy of 86.67 (greedy search) on AIME 2024**.
+  - Remarkably, this ability can be **activated with only a small number of high-quality training instances**.
 - We will soon open-source our model, code, and data.
 
 <p align="center">
@@ -65,7 +83,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ### ✨ STILL-3-Tool-32B: Empowering Reasoning Models with Wings: Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs
 
-- 🧑‍💻 We attempt to activate the **tool manipulation** capability of the long CoT thinking model, enabling it to **spontaneously generate code and call upon tools** to assist in the problem-solving process. 
+- 🧑‍💻 We attempt to activate the **tool manipulation** capability of the long CoT thinking model, enabling it to **spontaneously generate code and call upon tools** to assist in the problem-solving process.
 - 📈 To our surprise, we find that **_our approach outperform the comparative baseline models (such as DeepSeek-R1, o1, o3-mini-medium) on AIME 24_**, and **_its average performance across three math competitions was on par with DeepSeek-R1_**!
 - 📝 We have detailed the training process, data construction, and case studies of STILL-3-Tool-32B in our [**Notion page**](https://lake-bayberry-173.notion.site/Empowering-Reasoning-Models-with-Wings-Tool-Manipulation-Significantly-Enhances-the-Reasoning-Abili-1a6ab1cf72428023a105c16eec90968e).
 - 🔥 Here are our [model](https://huggingface.co/RUC-AIBOX/STILL-3-TOOL-32B), [code](https://github.com/RUCAIBox/Slow_Thinking_with_LLMs/tree/main/STILL-3-TOOL) and [data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-TOOL-32B-Data).
@@ -76,8 +94,8 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ### 🚀 STILL-3-1.5B-Preview: A 1.5B slow-thinking reasoning model continuously evolving through RL.
 
-+ To delve deeper into the potential of reinforcement learning, we applied this training method to the publicly released SFT model by DeepSeek, known as [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), which has enhanced by complex reasoning capacities. 
-+ Throughout the RL process, we noticed **a progressive expansion in both the training and test sets**. This led to a substantial enhancement in the model's reasoning skills, culminating in a 39.33% accuracy score on the American Invitational Mathematics Examination (AIME) leaderboard. 
++ To delve deeper into the potential of reinforcement learning, we applied this training method to the publicly released SFT model by DeepSeek, known as [DeepSeek-R1-Distill-Qwen-1.5B](deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B), which has enhanced by complex reasoning capacities.
++ Throughout the RL process, we noticed **a progressive expansion in both the training and test sets**. This led to a substantial enhancement in the model's reasoning skills, culminating in a 39.33% accuracy score on the American Invitational Mathematics Examination (AIME) leaderboard.
 + We are open-sourcing all of the relevant **[code](OpenRLHF-STILL) (based on [OpenRLHF](https://github.com/OpenRLHF/OpenRLHF)), [model](RUC-AIBOX/STILL-3-1.5B-preview), and [training data](RUC-AIBOX/STILL-3-Preview-RL-Data)** (30k from MATH,NuminaMathCoT, and AIME 1983-2023)  to foster further research and development in the field of reinforcement learning algorithms.
 
 We evaluated the model on four benchmarks: MATH, AIME, OMNI, and LiveAOPS. For MATH and AIME, we employed a sampling decoding setup with a sampling temperature of 0.6 and a top-p sampling probability of 0.95. Each question was sampled 64 times, and the average score was calculated. For OMNI and LiveAOPS (August-November 2024), we randomly sampled a subset of answers as integers to facilitate automated evaluation, and used greedy search decoding for the evaluation. The trained model, STILL-3-1.5B-preview, achieved significant improvement. The accuracy on the AIME task increased from 28.67% to 39.33%, resulting in a relative improvement of 37.18%.
@@ -157,7 +175,7 @@ print(responses[0].outputs[0].text)
 
 ### 🚀 Enhancing LLM Reasoning with Reward-guided Tree Search [[Report]](https://arxiv.org/abs/2411.11694)
 
-+ Recently, test-time scaling has garnered significant attention from the research community, largely due to the substantial advancements of the o1 model released by OpenAI. However,  develop an o1-like reasoning approach is challenging, and  researchers have been making various attempts to advance this open area of research. In this paper, we present a preliminary exploration into enhancing the reasoning abilities of  LLMs through **reward-guided tree search algorithms**. This framework is implemented by integrating the policy model, reward model, and search algorithm. It is primarily constructed around a tree search algorithm, where the policy model navigates a dynamically expanding tree guided by a specially trained reward model. 
++ Recently, test-time scaling has garnered significant attention from the research community, largely due to the substantial advancements of the o1 model released by OpenAI. However,  develop an o1-like reasoning approach is challenging, and  researchers have been making various attempts to advance this open area of research. In this paper, we present a preliminary exploration into enhancing the reasoning abilities of  LLMs through **reward-guided tree search algorithms**. This framework is implemented by integrating the policy model, reward model, and search algorithm. It is primarily constructed around a tree search algorithm, where the policy model navigates a dynamically expanding tree guided by a specially trained reward model.
 
   <img src="figures/report_1.jpg" alt="report_1" style="zoom:50%;" />
 
@@ -176,7 +194,7 @@ print(responses[0].outputs[0].text)
 
 ## Future Work
 
-Despite the promising results, our exploration remains preliminary, and there is still a substantial capacity gap compared to industry-level systems. As future work, we plan to investigate how to scale our training approach and extend its capacity to more complex tasks. 
+Despite the promising results, our exploration remains preliminary, and there is still a substantial capacity gap compared to industry-level systems. As future work, we plan to investigate how to scale our training approach and extend its capacity to more complex tasks.
 
 As always, we are committed to keeping our technical approach *open*, and we will release the data, model, and other resources. We welcome collaboration and support in computational resources.
 
@@ -209,7 +227,7 @@ Please kindly cite our reports if they are helpful for your research.
 
 ```
 @article{Slow_Thinking_with_LLMs_3,
-      title={An Empirical Study on Eliciting and Improving R1-like Reasoning Models}, 
+      title={An Empirical Study on Eliciting and Improving R1-like Reasoning Models},
       author={Chen, Zhipeng and Min, Yingqian and Zhang, Beichen  and Chen, Jie and Jiang, Jinhao and Cheng, Daixuan and Zhao, Wayne Xin and Liu, Zheng and Miao, Xu and Lu, Yang and Fang, Lei and Wang, Zhongyuan and Wen, Ji-Rong},
       journal={arXiv preprint arXiv:2503.04548},
       year={2025}
@@ -246,13 +264,21 @@ Please kindly cite our reports if they are helpful for your research.
 
 ```
 @article{du2025virgo,
-      title={Virgo: A Preliminary Exploration on Reproducing o1-like MLLM}, 
+      title={Virgo: A Preliminary Exploration on Reproducing o1-like MLLM},
       author={Yifan Du and Zikang Liu and Yifan Li and Wayne Xin Zhao and Yuqi Huo and Bingning Wang and Weipeng Chen and Zheng Liu and Zhongyuan Wang and Ji-Rong Wen},
       journal={arXiv preprint arXiv:2501.01904},
       year={2025}
 }
 ```
 
+```
+@article{R1-searcher,
+  title={R1-searcher:  Stimulating the Search Capability of LLM from Zero via Reinforcement Learning},
+  author={Huatong Song, Jinhao Jiang, Yingqian Min, Jie Chen, Zhipeng Chen, Wayne Xin Zhao, Ji-Rong Wen, Yang Lu, Xu Miu},
+  url={https://github.com/SsmallSong/R1-searcher},
+  year={2025}
+}
+```
 
 ## Star History
 
