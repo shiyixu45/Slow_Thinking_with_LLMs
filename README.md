@@ -13,6 +13,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
+- [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report)
 - [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
 - [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
   - [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
@@ -23,6 +24,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 - [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
++ [28 Mar 2025] ⚡️⚡️ [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report): We introduce [OlymMATH](https://arxiv.org/abs/2503.21380), a challenging benchmark of 200 Olympiad-level math problems across algebra, geometry, number theory, and combinatorics in both English and Chinese. Even the most advanced models achieve only moderate accuracy on OlymMATH-EN-HARD, highlighting significant room for improvement in mathematical reasoning. We open-source our dataset, evaluation code, and paper. For more details, please refer to our [project page](https://github.com/RUCAIBox/OlymMATH) and [huggingface](https://huggingface.co/datasets/RUC-AIBOX/OlymMATH) 🤗.
 + [9 Mar 2025] ⚡️⚡️ [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report): We propose [R1-Searcher](https://arxiv.org/abs/2503.05592), a novel two-stage outcome-based RL approach designed to enhance the search capabilities of LLMs.
   + This method allows LLMs to **autonomously invoke external search systems** to access additional knowledge during the reasoning process.
   + Our framework **relies exclusively on RL**, without requiring process rewards or distillation for a cold start.
@@ -42,6 +44,24 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 
 ## Detailed Contents
+
+### OlymMATH: Challenging the Boundaries of Reasoning: An Olympiad-Level Math Benchmark for Large Language Models [[Report]](https://arxiv.org/pdf/2503.21380)
+
+- 🧮 We introduce **OlymMATH**, a meticulously curated benchmark of **200 high-quality Olympiad-level** math problems spanning algebra, geometry, number theory, and combinatorics.
+
+- 🌐 Our benchmark features fully parallel English and Chinese problem sets (**OlymMATH-EN** and **OlymMATH-ZH**), enabling comprehensive multilingual evaluation of mathematical reasoning capabilities.
+
+- 📊 OlymMATH is strategically divided into two difficulty levels:
+The **EASY** subset closely aligns with AIME-level difficulty, providing an effective evaluation for standard reasoning approaches
+The **HARD** subset is specifically designed to challenge state-of-the-art reasoning models, pushing the boundaries of their capabilities.
+
+- 🔍 Our experiments reveal that even the most advanced models struggle with OlymMATH-HARD, highlighting significant room for improvement in mathematical reasoning.
+
+- 🧠 We observe that LLMs often resort to empirical **guessing** rather than rigorous reasoning, using pattern matching, heuristic methods, or proposition simplification to arrive at answers without systematic derivation. OlymMATH-HARD effectively challenges these "shortcut" approaches, as its complex problems require deeper mathematical understanding.
+
+<p align="center">
+  <img src="figures/OlymMATH.png" width="666"/>
+</p>
 
 ### R1-Searcher: Incentivizing the Search Capability in LLMs via Reinforcement Learning [[Report]](https://arxiv.org/pdf/2503.05592)
 
@@ -103,11 +123,11 @@ We evaluated the model on four benchmarks: MATH, AIME, OMNI, and LiveAOPS. For M
 
 | | MATH | AIME | OMNI | LiveAOPS | Avg. |
 | --- | --- | --- | --- | --- | --- |
-|Qwen-2.5-Math-7B-Instruct|83.60|16.67|	- | -| - |
-|Qwen-2.5-Math-72B-Instruct|85.90|30.00|	- | -| - |
-|O1-preview	| 85.50 | 44.60 |	- | -| - |
-|STILL-2	| 90.20	| 46.67	| -	| - | -|
-|QwQ-32B	| 90.60	| 50.00	| -	| - | -|
+|Qwen-2.5-Math-7B-Instruct|83.60|16.67| - | -| - |
+|Qwen-2.5-Math-72B-Instruct|85.90|30.00|    - | -| - |
+|O1-preview | 85.50 | 44.60 |   - | -| - |
+|STILL-2    | 90.20 | 46.67 | - | - | -|
+|QwQ-32B    | 90.60 | 50.00 | - | - | -|
 | DeepSeek-R1-Distill-Qwen-1.5B | 84.04 | 28.67 | 25.60 | 33.33 | 42.91 |
 | STILL-3-1.5B-preview | **85.48** | **39.33** | **33.00** | **39.50** | **49.33** |
 
