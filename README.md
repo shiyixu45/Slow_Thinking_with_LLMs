@@ -13,23 +13,15 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
-- [Content List](#content-list)
-- [News](#news)
-- [Detailed Contents](#detailed-contents)
-  - [OlymMATH: Challenging the Boundaries of Reasoning: An Olympiad-Level Math Benchmark for Large Language Models \[Report\]](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report)
-  - [R1-Searcher: Incentivizing the Search Capability in LLMs via Reinforcement Learning \[Report\]](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
-  - [STILL-3: An Empirical Study on Eliciting and Improving R1-like Reasoning Models \[Report\]](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models-report)
-  - [✨ STILL-3-Tool-32B: Empowering Reasoning Models with Wings: Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs](#-still-3-tool-32b-empowering-reasoning-models-with-wings-tool-manipulation-significantly-enhances-the-reasoning-ability-of-o1--and-r1-like-llms)
-  - [🚀 STILL-3-1.5B-Preview: A 1.5B slow-thinking reasoning model continuously evolving through RL.](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
-  - [🚀 Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems \[Report\]](#-imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
-    - [Quick Start](#quick-start)
-  - [🚀 Enhancing LLM Reasoning with Reward-guided Tree Search \[Report\]](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
-  - [🚀 Think More, Hallucinate Less: Mitigating Hallucinations via Dual Process of Fast and Slow Thinking \[Report\]](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
-  - [🚀 Virgo: A Preliminary Exploration on Reproducing o1-like MLLM \[Report\]](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
-- [Future Work](#future-work)
-- [Acknowledgements](#acknowledgements)
-- [Reference](#reference)
-- [Star History](#star-history)
+- [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report)
+- [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
+- [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
+  - [**STILL-3-Tool-32B**](#-still-3-tool-32b-a-32b-slow-thinking-reasoning-model-leveraging-python-code-to-help-the-reasoning-process)
+  - [**STILL-3-1.5B-preview**](#-still-3-15b-preview-a-15b-slow-thinking-reasoning-model-continuously-evolving-through-rl)
+- [**Virgo**](#-virgo-a-preliminary-exploration-on-reproducing-o1-like-mllm-report)
+- [**STILL-Hallucination Mitigation**](#-think-more-hallucinate-less-mitigating-hallucinations-via-dual-process-of-fast-and-slow-thinking-report)
+- [**STILL-2**](#-imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems-report)
+- [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
 + [28 Mar 2025] ⚡️⚡️ [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report): We introduce [OlymMATH](https://arxiv.org/abs/2503.21380), a challenging benchmark of 200 Olympiad-level math problems across algebra, geometry, number theory, and combinatorics in both English and Chinese. Even the most advanced models achieve only moderate accuracy on OlymMATH-EN-HARD, highlighting significant room for improvement in mathematical reasoning. We open-source our dataset, evaluation code, and paper. For more details, please refer to our [project page](https://github.com/RUCAIBox/OlymMATH) and [huggingface](https://huggingface.co/datasets/RUC-AIBOX/OlymMATH) 🤗.
@@ -131,11 +123,11 @@ We evaluated the model on four benchmarks: MATH, AIME, OMNI, and LiveAOPS. For M
 
 | | MATH | AIME | OMNI | LiveAOPS | Avg. |
 | --- | --- | --- | --- | --- | --- |
-|Qwen-2.5-Math-7B-Instruct|83.60|16.67|	- | -| - |
-|Qwen-2.5-Math-72B-Instruct|85.90|30.00|	- | -| - |
-|O1-preview	| 85.50 | 44.60 |	- | -| - |
-|STILL-2	| 90.20	| 46.67	| -	| - | -|
-|QwQ-32B	| 90.60	| 50.00	| -	| - | -|
+|Qwen-2.5-Math-7B-Instruct|83.60|16.67| - | -| - |
+|Qwen-2.5-Math-72B-Instruct|85.90|30.00|    - | -| - |
+|O1-preview | 85.50 | 44.60 |   - | -| - |
+|STILL-2    | 90.20 | 46.67 | - | - | -|
+|QwQ-32B    | 90.60 | 50.00 | - | - | -|
 | DeepSeek-R1-Distill-Qwen-1.5B | 84.04 | 28.67 | 25.60 | 33.33 | 42.91 |
 | STILL-3-1.5B-preview | **85.48** | **39.33** | **33.00** | **39.50** | **49.33** |
 
