@@ -84,7 +84,7 @@ The **HARD** subset is specifically designed to challenge state-of-the-art reaso
   - Our RL training approach consistently improves the QWEN2.5-32B base model, enhancing both response length and test accuracy.
 - Response length serves as an important indicator of the success of RL training; however, it is a consequence, not a cause, of performance improvement. Designing specialized reward functions to explicitly encourage the model to produce longer responses may lead to issues such as reward hacking, which can’t inherently enhance the model’s reasoning capabilities.
 - RL training consistently improves the performance of fine-tuned models, encompassing both short and long CoT reasoning models.
-  - Even after Qwen2.5-1.5B attains a high level of performance through training with distilled data, RL training further elevates its capabilities, **achieving a remarkable accuracy of 39.33 on AIME 2024**.
+  - Even after Qwen2.5-1.5B attains a high level of performance through training with distilled data, RL training further elevates its capabilities, **achieving a remarkable accuracy of 39.33 on AIME 2024** **(STILL-3-1.5B-Preview)**.
 - Through supervised fine-tuning, LRMs can acquire the capability to manipulate external tools, leading to a significant enhancement in the model’s performance.
   - By effectively utilizing tool manipulation, **STILL-3-TOOL-32B achieves an impressive accuracy of 86.67 (greedy search) on AIME 2024**.
   - Remarkably, this ability can be **activated with only a small number of high-quality training instances**.
