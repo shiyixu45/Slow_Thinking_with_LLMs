@@ -254,24 +254,7 @@ Please kindly cite our reports if they are helpful for your research.
 }
 ```
 
-```
-@article{Slow_Thinking_with_LLMs_3_Tool,
-  title={Tool Manipulation Significantly Enhances the Reasoning Ability of O1- and R1-like LLMs},
-  author={RUCAIBox STILL Team},
-  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
-  year={2025}
-}
-```
 
-```
-@article{Slow_Thinking_with_LLMs_3_Preview,
-  title={STILL-3-1.5B-preview: Enhancing Slow Thinking Abilities of Small Models through Reinforcement Learning
-},
-  author={RUCAIBox STILL Team},
-  url={https://github.com/RUCAIBox/Slow_Thinking_with_LLMs},
-  year={2025}
-}
-```
 
 ```
 @article{cheng2025think,
