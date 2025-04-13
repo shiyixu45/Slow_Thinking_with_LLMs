@@ -53,7 +53,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ### SimpleDeepSearcher: Deep Information Seeking via Web-Powered Reasoning Trajectory Synthesis [[Notion]](https://sweet-walkover-f9b.notion.site/SimpleDeepSearcher-Deep-Information-Seeking-via-Web-Powered-Reasoning-Trajectory-Synthesis-1d1c27a43d7a801090d8ce1a75b2d6d0?pvs=4)
 
-- 🚀 To address the inefficiency and redundant reasoning of large models in complex information retrieval tasks, we curate and filter **871 high-quality samples** from a real web search environment. By leveraging knowledge distillation and self-distillation on strong reasoning models, we achieve significant performance gains, **surpassing existing reinforcement learning methods.**
+- 🚀 To address the inefficiency and redundant reasoning of large models in complex information retrieval tasks, we curate and filter **871 high-quality samples** from a real web search environment. By leveraging knowledge distillation and self-distillation on strong reasoning models, we achieve significant performance gains, **surpassing existing reinforcement learning methods**.
 
 - 🌐 We construct a large-scale data synthesis pipeline **based on real and open web environments,** substantially enhancing the model's capability in handling complex and noisy search scenarios.
 
