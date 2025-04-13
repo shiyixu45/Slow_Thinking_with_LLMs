@@ -13,6 +13,8 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
+- [**SimpleDeepSearcher**](#simpledeepsearcher-deep-information-seeking-via-web-powered-reasoning-trajectory-synthesis-notion
+)
 - [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report)
 - [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
 - [**STILL-3**](#still-3-an-empirical-study-on-eliciting-and-improving-r1-like-reasoning-models)
@@ -24,6 +26,8 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 - [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
++ [11 April 2025] [**SimpleDeepSearcher**](#simpledeepsearcher-deep-information-seeking-via-web-powered-reasoning-trajectory-synthesis-notion
+): We propose the **SimpleDeepSearcher** framework, which aims to stimulate autonomous web search capabilities in large language models through knowledge distillation and self-distillation. By leveraging powerful reasoning models and a real-world web search environment, we carefully curated and filtered **871 high-quality training examples**, significantly enhancing model performance on complex information retrieval tasks and **outperforming existing reinforcement learning approaches**. All models and efficient fine-tuning datasets ([0.5k](https://huggingface.co/datasets/RUC-AIBOX/0.5k-data-SimpleDeepSearcher) and [0.8k](https://huggingface.co/datasets/RUC-AIBOX/0.8k-data-SimpleDeepSearcher)) have been open-sourced.For more details, please refer to our [project page](https://github.com/RUCAIBox/SimpleDeepSearcher) and [huggingface](https://huggingface.co/RUC-AIBOX/QwQ-32B-SimpleDeepSearcher) 🤗.
 + [8 April 2025] ⚡️⚡️We open source our [code](VERL-STILL) and [training data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-RL-90K) of STILL-3!
 + [28 Mar 2025] [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report): We introduce [OlymMATH](https://arxiv.org/abs/2503.21380), a challenging benchmark of 200 Olympiad-level math problems across algebra, geometry, number theory, and combinatorics in both English and Chinese. Even the most advanced models achieve only moderate accuracy on OlymMATH-EN-HARD, highlighting significant room for improvement in mathematical reasoning. We open-source our dataset, evaluation code, and paper. For more details, please refer to our [project page](https://github.com/RUCAIBox/OlymMATH) and [huggingface](https://huggingface.co/datasets/RUC-AIBOX/OlymMATH) 🤗.
 + [9 Mar 2025] [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report): We propose [R1-Searcher](https://arxiv.org/abs/2503.05592), a novel two-stage outcome-based RL approach designed to enhance the search capabilities of LLMs.
@@ -46,6 +50,22 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 
 ## Detailed Contents
+
+### SimpleDeepSearcher: Deep Information Seeking via Web-Powered Reasoning Trajectory Synthesis [[Notion]](https://sweet-walkover-f9b.notion.site/SimpleDeepSearcher-Deep-Information-Seeking-via-Web-Powered-Reasoning-Trajectory-Synthesis-1d1c27a43d7a801090d8ce1a75b2d6d0?pvs=4)
+
+- 🚀 To address the inefficiency and redundant reasoning of large models in complex information retrieval tasks, we curate and filter **871 high-quality samples** from a real web search environment. By leveraging knowledge distillation and self-distillation on strong reasoning models, we achieve significant performance gains, **surpassing existing reinforcement learning methods**.
+
+- 🌐 We construct a large-scale data synthesis pipeline **based on real and open web environments,** substantially enhancing the model's capability in handling complex and noisy search scenarios.
+
+- 🎯 We fine-tune **Qwen-2.5-7B-Instruct, Qwen-2.5-32B-Instruct, Dpsk-Distilled-Qwen-32B**, and **QwQ-32B**. Our model outperforms existing baselines on **five benchmarks** (2WikiMultiHopQA, Bamboogle, Musique, FRAMES, GAIA), and demonstrates especially **strong performance on the more challenging *Frames* and *GAIA* datasets.**
+
+- 💡 We also explore **reinforcement learning on distilled models** to continuously stimulate their capabilities, and observe several intriguing phenomena.
+
+<p align="center">
+  <img src="figures/SimpleDeepSearcher_7B.png" width="45%" style="display: inline-block;"/>
+  <img src="figures/SimpleDeepSearcher_32B.png" width="45%" style="display: inline-block;"/>
+</p>
+
 
 ### OlymMATH: Challenging the Boundaries of Reasoning: An Olympiad-Level Math Benchmark for Large Language Models [[Report]](https://arxiv.org/pdf/2503.21380)
 
