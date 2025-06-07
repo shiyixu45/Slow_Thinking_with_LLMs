@@ -13,7 +13,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 ---
 
 ## Content List
-- [**ICPC-Eval**](#icpc-eval-probing-the-frontiers-of-llm-reasoning-with-competitive-programming-contests)
+- [**ICPC-Eval**](#icpc-eval-probing-the-frontiers-of-llm-reasoning-with-competitive-programming-contests-report)
 - [**SimpleDeepSearcher**](#simpledeepsearcher-deep-information-seeking-via-web-powered-reasoning-trajectory-synthesis-notion)
 - [**OlymMATH**](#olymmath-challenging-the-boundaries-of-reasoning-an-olympiad-level-math-benchmark-for-large-language-models-report)
 - [**R1-Searcher**](#r1-searcher-incentivizing-the-search-capability-in-llms-via-reinforcement-learning-report)
@@ -26,7 +26,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 - [**STILL-1**](#-enhancing-llm-reasoning-with-reward-guided-tree-search-report)
 
 ## News
-+ [29 May 2025] [**ICPC-Eval**](#icpc-eval-probing-the-frontiers-of-llm-reasoning-with-competitive-programming-contests): We introduce ICPC-Eval, a new benchmark of 118 ICPC problems for evaluating LLM reasoning in competitive coding, featuring realistic ICPC competition scenario, robust local evaluation, and a iterative repair metrics Refine@K. We open-source our dataset, evaluation code, and paper. For more details, please refer to our [project page](https://github.com/RUCAIBox/ICPC-Eval) and [huggingface](https://huggingface.co/datasets/RUC-AIBOX/ICPC-Eval) 🤗.
++ [29 May 2025] [**ICPC-Eval**](#icpc-eval-probing-the-frontiers-of-llm-reasoning-with-competitive-programming-contests-report): We introduce ICPC-Eval, a new benchmark of 118 ICPC problems for evaluating LLM reasoning in competitive coding, featuring realistic ICPC competition scenario, robust local evaluation, and a iterative repair metrics Refine@K. We open-source our dataset, evaluation code, and paper. For more details, please refer to our [project page](https://github.com/RUCAIBox/ICPC-Eval) and [huggingface](https://huggingface.co/datasets/RUC-AIBOX/ICPC-Eval) 🤗.
 + [11 April 2025] [**SimpleDeepSearcher**](#simpledeepsearcher-deep-information-seeking-via-web-powered-reasoning-trajectory-synthesis-notion
 ): We propose the **SimpleDeepSearcher** framework, which aims to stimulate autonomous web search capabilities in large language models through knowledge distillation and self-distillation. By leveraging powerful reasoning models and a real-world web search environment, we carefully curated and filtered **871 high-quality training examples**, significantly enhancing model performance on complex information retrieval tasks and **outperforming existing reinforcement learning approaches**. All models and efficient fine-tuning datasets ([0.5k](https://huggingface.co/datasets/RUC-AIBOX/0.5k-data-SimpleDeepSearcher) and [0.8k](https://huggingface.co/datasets/RUC-AIBOX/0.8k-data-SimpleDeepSearcher)) have been open-sourced.For more details, please refer to our [project page](https://github.com/RUCAIBox/SimpleDeepSearcher) and [huggingface](https://huggingface.co/RUC-AIBOX/QwQ-32B-SimpleDeepSearcher) 🤗.
 + [8 April 2025] ⚡️⚡️We open source our [code](VERL-STILL) and [training data](https://huggingface.co/datasets/RUC-AIBOX/STILL-3-RL-90K) of STILL-3!
