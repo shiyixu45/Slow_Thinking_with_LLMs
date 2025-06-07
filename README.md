@@ -52,7 +52,7 @@ We are STILL exploring the uncharted territory of o1-like reasoning systems.
 
 ## Detailed Contents
 
-### ICPC-Eval: Probing the Frontiers of LLM Reasoning with Competitive Programming Contests
+### ICPC-Eval: Probing the Frontiers of LLM Reasoning with Competitive Programming Contests [[Report]](https://arxiv.org/abs/2506.04894)
 
 * 🧠 We introduce a new benchmark **ICPC-Eval** designed to evaluate the *reasoning ability* of LLMs under **realistic competitive programming environments**, based on **118 curated problems** from 11 recent ICPC regional contests worldwide.
 
